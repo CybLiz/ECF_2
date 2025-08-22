@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.environement.entity.Travellog;
 import org.example.environement.entity.enums.TravelMode;
 
 @NoArgsConstructor
@@ -23,4 +24,6 @@ public class TravellogDtoReceive {
         travellog.calculateCO2();
         return travellog;
     }
+
+
 }

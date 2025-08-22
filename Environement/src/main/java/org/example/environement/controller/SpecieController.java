@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/specie")
+@RequestMapping("api/species")
 public class SpecieController {
 
     private final SpecieService specieService;
@@ -19,6 +19,10 @@ public class SpecieController {
         this.specieService = specieService;
     }
 
+    @PostMapping
+    public ResponseEntity<SpecieDtoResponse> createSpecie (@RequestBody SpecieDtoReceive specieDtoReceive){
+        return ResponseEntity.status(HttpStatus.CREATED).body(specieService.create(specieDtoReceive));
+    }
     @GetMapping
     public ResponseEntity<List<SpecieDtoResponse>> getSpecies (@RequestParam int pageSize, @RequestParam int pageNumber){
         return ResponseEntity.ok(specieService.get(pageSize,pageNumber));
@@ -28,11 +32,5 @@ public class SpecieController {
     public ResponseEntity<SpecieDtoResponse> getSpecieById (@PathVariable long id){
         return ResponseEntity.ok(specieService.get(id));
     }
-
-    @PostMapping
-    public ResponseEntity<SpecieDtoResponse> createSpecie (@RequestBody SpecieDtoReceive specieDtoReceive){
-        return ResponseEntity.status(HttpStatus.CREATED).body(specieService.create(specieDtoReceive));
-    }
-
 
 }

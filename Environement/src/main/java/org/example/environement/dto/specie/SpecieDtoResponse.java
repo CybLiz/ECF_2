@@ -1,11 +1,9 @@
 package org.example.environement.dto.specie;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.environement.entity.enums.Category;
 
 @NoArgsConstructor
 @AllArgsConstructor
